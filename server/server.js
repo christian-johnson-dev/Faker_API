@@ -6,10 +6,11 @@ const port = 8000;
 //
 //
 //*============ CREATE FAKER DATA ============*//
-const fakeFirstName = faker.name.firstName();
-const fakeLastName = faker.name.lastName();
+
 //*---- USER ----
 const createUser = () => {
+  const fakeFirstName = faker.name.firstName();
+  const fakeLastName = faker.name.lastName();
   const newFake = {
     _id: faker.datatype.uuid(),
     firstName: fakeFirstName,
@@ -30,7 +31,7 @@ const createCompany = () => {
   const fakeState = faker.address.stateAbbr();
   const newFake = {
     _id: faker.datatype.uuid(),
-    companyName: fakeLastName + " " + faker.company.companySuffix(),
+    companyName: faker.company.name() + " " + faker.company.companySuffix(),
     street: faker.address.streetAddress(),
     city: faker.address.city(),
     state: fakeState,
